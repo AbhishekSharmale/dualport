@@ -22,10 +22,18 @@
         :style="{ opacity: osLoaded ? 1 : 0 }"
       ></iframe>
       <div v-if="osError" class="os-error">
-        <h3>OS Interface Unavailable</h3>
-        <p>Please start the OS server first:</p>
-        <code>cd ../port && npm run dev -- --port 3002</code>
-        <button @click="retryOS" class="retry-btn">Retry Connection</button>
+        <h3>🚀 OS Interface Coming Soon!</h3>
+        <p>The revolutionary OS portfolio experience is being deployed...</p>
+        <div class="os-preview">
+          <div class="preview-screen">
+            <div class="boot-animation">
+              <div class="boot-text">ABHISHEK_OS</div>
+              <div class="loading-dots">Loading<span class="dots">...</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-note">For now, enjoy the modern scroll experience below!</p>
+        <button @click="closeOSMode" class="back-btn">Back to Portfolio</button>
       </div>
       <button class="close-os" @click="closeOSMode">✕</button>
     </div>
@@ -141,7 +149,7 @@ const osLoaded = ref(false)
 const osError = ref(false)
 const scrollProgress = ref(0)
 const osUrl = computed(() => {
-  return process.dev ? 'http://localhost:3002' : 'https://os.abhishek-regrets-nothing.dev'
+  return process.dev ? 'http://localhost:3002' : 'https://dualport.pages.dev/os'
 })
 
 const stats = ref([
@@ -366,6 +374,57 @@ useHead({
   display: block;
 }
 
+.os-preview {
+  margin: 2rem 0;
+}
+
+.preview-screen {
+  width: 300px;
+  height: 200px;
+  background: #000;
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.boot-animation {
+  text-align: center;
+  color: #00ff00;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.boot-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.loading-dots {
+  font-size: 0.9rem;
+}
+
+.dots {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.demo-note {
+  color: #888;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.back-btn,
 .retry-btn {
   background: #00ff00;
   color: #000;
@@ -375,6 +434,11 @@ useHead({
   cursor: pointer;
   font-weight: bold;
   margin-top: 1rem;
+}
+
+.back-btn:hover,
+.retry-btn:hover {
+  background: #00aa00;
 }
 
 /* Hero Section */
