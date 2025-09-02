@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0f;
+  color: #f8fafc;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Unique Scroll Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.parallax-bg {
+  transform: translateY(var(--scroll-offset, 0));
+}
+
+/* Magnetic Scroll Effect */
+.magnetic-section {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic-section:hover {
+  transform: scale(1.02);
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  border-radius: 4px;
+}
+
+/* OS Mode Toggle */
+.os-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.os-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+}
+
+/* Unique Scroll Indicators */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #ec4899);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  z-index: 1000;
+}
